@@ -1,0 +1,35 @@
+.button-primary {
+  background-color: var(--bg-color-light);
+  /* color: white; */
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+  border-radius: 1.5rem;
+  border: 2px solid var(--bg-primary);
+}
+
+.button-secondary {
+  background-color: var(--white);
+  color: var(--bg-primary);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.button-danger {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button-ghost {
+  background-color: transparent;
+  text-decoration: underline;
+  color: var(--bg-primary);
+  cursor: pointer;
+  border: none;
+}

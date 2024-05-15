@@ -1,0 +1,17 @@
+/* Hero.css */
+
+.hero-container {
+  background-color: var(--bg-color-lighter);
+  border-radius: 1rem;
+}
+
+.hero-title {
+  color: var(--black);
+  text-align: left;
+  margin-bottom: 5rem;
+}
+
+.info-container {
+  background-color: var(--bg-primary);
+  border-bottom-left-radius: 1rem;
+}

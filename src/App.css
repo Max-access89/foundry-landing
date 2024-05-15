@@ -1,5 +1,18 @@
+:root {
+  --bg-primary: #619b7d;
+  --bg-color-light: #619b7d2b;
+  --bg-color-lighter: #619b7d00;
+  --bg-secondary: #619b7d2c;
+  --black: #000;
+  --white: #fff;
+  --text-color-black: #000;
+  --text-color-white: #fff;
+}
+
 .App {
   text-align: center;
+  background-color: var(--bg-color-light);
+  font-family: "Roboto", sans-serif;
 }
 
 .App-logo {
@@ -28,11 +41,55 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sections-container {
+  padding: 1rem 8rem;
+}
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  grid-gap: 0.5rem;
+  /* margin: 0.5rem 0; */
+}
+
+.nav-item {
+  padding: 1rem;
+  cursor: pointer;
+  color: black;
+}
+
+.nav-item.active {
+  color: black;
+}
+
+.nav-item:hover {
+  color: lightgray;
+}
+
+.hero-1 {
+  background-image: url("./Assets//Frame\ 1000004577.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+}
+
+.streamline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.walk-in {
+  transform: translateX(2rem);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.2); /* White background with transparency */
+  backdrop-filter: blur(5px); /* Blur the background behind the element */
+  -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
 }
