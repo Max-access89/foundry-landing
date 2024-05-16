@@ -4,6 +4,11 @@
   background-color: var(--bg-primary-deeper);
   padding: 3rem 8rem 0.5rem 8rem;
   color: var(--text-color-white);
+
+  background-image: url("../../Assets//footerbg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
 }
 .footer {
   display: flex;

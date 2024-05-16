@@ -23,7 +23,10 @@ export const Nav = () => {
         backgroundColor: "white",
       }}
     >
-      <FoundryLogo />
+      <div className="d-flex gap-3 align-items-safe">
+        <FoundryLogo />
+        <h6 className="mt-3">FOUNDRY</h6>
+      </div>
       <div style={{ display: "flex" }}>
         <NavItem
           label="Home"

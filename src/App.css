@@ -1,5 +1,5 @@
 :root {
-  --bg-primary-deeper: #377454;
+  --bg-primary-deeper: #387d59;
   --bg-primary: #619b7d;
   --bg-color-light: #619b7d2b;
   --bg-color-lighter: #619b7d00;
@@ -149,6 +149,7 @@
   flex-direction: column;
   background-color: white;
   border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .streamline {
@@ -179,7 +180,11 @@
   background-color: var(--bg-primary);
   color: var(--text-color-white);
   border: none;
-  /* border-radius: 0.5rem; */
+  border-radius: 0.5rem;
   /* padding: 0.5rem 1rem; */
   cursor: pointer;
+  margin-left: -1rem;
+}
+.p-inputtext {
+  border-radius: 0.5rem;
 }

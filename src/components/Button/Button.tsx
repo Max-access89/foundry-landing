@@ -5,12 +5,16 @@ interface ButtonProps {
   title: string;
   onClick: () => void;
   variant?: "primary" | "secondary" | "danger" | "ghost" | "circle";
+  isLoading?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
   title,
   onClick,
   variant = "primary",
+  isLoading,
+  disabled,
 }) => {
   // Define button styles based on the variant
   const getButtonClass = (variant: string) => {
@@ -31,13 +35,22 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const buttonClass = getButtonClass(variant);
+  const isDisabled = disabled || isLoading; // Button is disabled if explicitly disabled or loading
 
   return (
     <button
       className={`${buttonClass} d-flex align-items-center justify-content-center`}
       onClick={onClick}
+      disabled={isDisabled}
     >
-      {title}
+      {isLoading ? (
+        <span className="d-flex align-items-center justify-content-center gap-2">
+          <i className="pi pi-spin pi-spinner" style={{ fontSize: "1rem" }}></i>
+          {title}
+        </span>
+      ) : (
+        title
+      )}
     </button>
   );
 };

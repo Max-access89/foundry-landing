@@ -10,6 +10,7 @@
     "@types/node": "^16.18.97",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "primeicons": "^7.0.0",
     "primereact": "^10.6.5",

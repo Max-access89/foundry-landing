@@ -7,6 +7,7 @@ interface CardProps {
   onButtonClick?: () => void;
   layout?: "sideways" | "topdown";
   backgroundImage?: string;
+  backgroundImageTwo?: string;
   backgroundPosition?: string;
 }
 
@@ -16,6 +17,7 @@ const Card: React.FC<CardProps> = ({
   onButtonClick = () => {},
   layout = "topdown",
   backgroundImage,
+  backgroundImageTwo,
   backgroundPosition,
 }) => {
   const isSideways = layout === "sideways";
@@ -30,9 +32,14 @@ const Card: React.FC<CardProps> = ({
     // border: "0.1px solid #ccc",
     borderRadius: "1.5rem",
     backgroundColor: "var(--bg-primary)",
-    backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
-    backgroundPosition: backgroundPosition || "center",
-    backgroundRepeat: "no-repeat",
+    backgroundImage:
+      backgroundImage || backgroundImageTwo
+        ? `${backgroundImage ? `url(${backgroundImage})` : "none"}, ${
+            backgroundImageTwo ? `url(${backgroundImageTwo})` : "none"
+          }`
+        : "none",
+    backgroundPosition: backgroundPosition || "center, center",
+    backgroundRepeat: "no-repeat, no-repeat",
     backgroundSize: "contain",
     overflow: "hidden",
   };
