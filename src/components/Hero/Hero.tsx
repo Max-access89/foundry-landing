@@ -1,8 +1,6 @@
 import React from "react";
-import FloatingCard from "../Card/FloatingCard";
 import InfoItem from "../InfoItem/InfoItem";
 import "./Hero.css"; // Make sure the path to the CSS file is correct
-import Button from "../Button/Button";
 import { AutomationIcon, FinanceIcon } from "../Icons/Icons";
 
 interface HeroProps {
@@ -23,7 +21,7 @@ const Hero = ({
   return (
     <div
       className="d-flex hero-container"
-      style={{ backgroundColor: isCard ? "white" : "inherit" }}
+      style={{ backgroundColor: isCard ? "var(--bg-white)" : "inherit" }}
     >
       <div className="d-flex flex-column flex-1">
         <div
@@ -33,8 +31,8 @@ const Hero = ({
             maxWidth: !subtitle ? "50%" : "70%",
           }}
         >
-          <h1>{headerTitle}</h1>
-          <p className="hero-subtitle">{subtitle}</p>
+          <h1 className="hero-header roboto-medium ">{headerTitle}</h1>
+          <p className="hero-subtitle col-6">{subtitle}</p>
         </div>
 
         {listitems && (

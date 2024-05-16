@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
 
         <div className="footer-section">
           <h4>Download Mobile App</h4>
-          <div className="download-links">
+          <div className="download-links mt-3">
             <a
               href="https://play.google.com/store/apps/details?id=example.app"
               target="_blank"
@@ -63,8 +63,8 @@ const Footer: React.FC = () => {
       </footer>
       <div>
         <hr />
-        <p style={{ textAlign: "center" }}>
-          Foundry &copy; {new Date().getFullYear()}2024. All Rights Reserved.
+        <p className="roboto-thin" style={{ textAlign: "center" }}>
+          Foundry &copy; {new Date().getFullYear()} All Rights Reserved.
         </p>
       </div>
     </div>

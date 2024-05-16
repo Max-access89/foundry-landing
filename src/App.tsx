@@ -10,20 +10,31 @@ import { Products } from "./Data/Products";
 import { ArrowRightIcon, CheckIcon } from "./components/Icons/Icons";
 import { moreFromFoundryItems, poweredByFoundryItems } from "./Data/Clients";
 import Card from "./components/Card/Card";
+import { useState } from "react";
+import { Dialog } from "primereact/dialog";
+import ContactForm from "./components/Form/ContactForm";
+import FloatingCard from "./components/Card/FloatingCard";
+
+// primereact
+import "primereact/resources/themes/saga-blue/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
 
 //image
 import productad from "./Assets/product-ad.png";
 import walkinCustomer from "./Assets/walk-in-customer.png";
 import topDemo from "./Assets/top-demo.png";
-import metalRing from "./Assets/Metallic White (75).png";
+import sparkles from "./Assets/sparkledbg.png";
 
 function App() {
+  const [isDialogVisible, setIsDialogVisible] = useState(false);
+
   return (
     <div className="App">
       <Nav />
       <div className="sections-container d-flex flex-column gap-5 mt-5">
         <div className="d-flex">
-          <div>
+          <div className="col-9">
             <Hero
               headerTitle={"Empowering all the ways you do business"}
               listitems
@@ -31,32 +42,13 @@ function App() {
             />
           </div>
 
-          <div className="hero-1">
-            <div className="h-50 bg-white"></div>
-            <div className="p-5 w-75">
-              <img
-                src={topDemo}
-                alt="demo"
-                style={{ width: "100%", height: "auto", borderRadius: "1rem" }}
-              />
-              <Card
-                backgroundImage={metalRing}
-                buttonLabel={
-                  <div>
-                    <span className="p-0 d-flex align-items-center gap-2">
-                      Get In Touch <ArrowRightIcon />
-                    </span>
-                  </div>
-                }
-                onButtonClick={() => alert("Learn more clicked!")}
-              >
-                <div className="text-white">
-                  Maximize your sales with easy-to-use, reliable, and fast
-                  in-store POS system and payment solutions. Find out how our
-                  POS system can benefit your business.
-                </div>
-              </Card>
-            </div>
+          <div className="hero-1 col-3">
+            <FloatingCard
+              topImage={topDemo}
+              title="Maximize your sales with easy-to-use, reliable, and fast in-store POS systems."
+              description="Find out how our POS system can benefit your business."
+              onButtonClick={() => setIsDialogVisible(true)}
+            />
           </div>
         </div>
 
@@ -70,12 +62,13 @@ function App() {
           cardContent={
             <div className="">
               <Card
+                backgroundImage={sparkles}
                 buttonLabel={
                   <span className="p-0 d-flex align-items-center gap-2">
                     Book Demo <ArrowRightIcon />
                   </span>
                 }
-                onButtonClick={() => alert("Learn more clicked!")}
+                onButtonClick={() => setIsDialogVisible(true)}
               >
                 <p className="p-3 rounded glass-effect walk-in">
                   <img width="100%" src={walkinCustomer} alt="" />
@@ -89,21 +82,23 @@ function App() {
             <div className="" style={{ width: "35%" }}>
               <img src={productad} alt="products" width="60%" />
 
-              <div className="p-2 w-75 ">
-                <Card
-                  layout="sideways"
-                  buttonLabel={<ArrowRightIcon />}
-                  onButtonClick={() => alert("Learn more clicked!")}
-                >
-                  <p className=" text-white">
-                    Streamline the allocation of resources and time slots,
-                    optimising bookings to minimise gaps and maximise
-                    utilisation
-                  </p>
-                </Card>
+              <div className="p-2 d-flex align-items-center justify-content-center">
+                <div className="col-9">
+                  <Card
+                    layout="sideways"
+                    buttonLabel={<ArrowRightIcon />}
+                    onButtonClick={() => {}}
+                  >
+                    <p className="text-white col-11 subtitle-text">
+                      Streamline the allocation of resources and time slots,
+                      optimising bookings to minimise gaps and maximise
+                      utilisation
+                    </p>
+                  </Card>
+                </div>
               </div>
             </div>
-            <div className="sections-grid" style={{ width: "60%" }}>
+            <div className="sections-grid col-7">
               {Products.map((product, index) => (
                 <ListItem Icon={<CheckIcon />} {...product} key={index} />
               ))}
@@ -134,7 +129,14 @@ function App() {
           </div>
         </Section>
       </div>
-
+      <Dialog
+        header="Book a Demo"
+        visible={isDialogVisible}
+        style={{ width: "50vw" }}
+        onHide={() => setIsDialogVisible(false)}
+      >
+        <ContactForm />
+      </Dialog>
       <Footer />
     </div>
   );

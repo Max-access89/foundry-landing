@@ -17,10 +17,10 @@ const ListItem: React.FC<ListItemProps> = ({
     <div
       style={{
         textAlign: "left",
-        marginBottom: "20px",
         backgroundColor: Icon ? "var(--bg-secondary)" : "none",
         borderRadius: Icon ? "1rem" : "none",
         padding: Icon ? "1rem" : "none",
+        flex: 1,
       }}
     >
       {Icon && Icon}
@@ -28,12 +28,12 @@ const ListItem: React.FC<ListItemProps> = ({
         <img
           src={imageUrl}
           alt={title}
-          style={{ width: "100%", height: "auto", borderRadius: "1rem" }}
+          style={{ width: "100%", height: "50%", borderRadius: "1rem" }}
         />
       )}
 
       <h5 className="mt-2">{title}</h5>
-      <p>{description}</p>
+      <p className="description-text">{description}</p>
     </div>
   );
 };

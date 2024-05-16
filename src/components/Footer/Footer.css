@@ -1,8 +1,8 @@
 /* Footer.css */
 
 .footer-container {
-  background-color: var(--bg-primary);
-  padding: 3rem 8rem;
+  background-color: var(--bg-primary-deeper);
+  padding: 3rem 8rem 0.5rem 8rem;
   color: var(--text-color-white);
 }
 .footer {
@@ -10,21 +10,22 @@
   justify-content: space-between;
   padding: 2rem 0;
   gap: 4rem;
+  line-height: 2rem;
 }
 
 .footer h4:after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 30%;
+  bottom: -0.2rem;
+  width: 2rem;
   height: 2px;
-  background-color: var(--text-color-white);
+  background-color: var(--bg-primary);
   border-radius: 0.5rem;
 }
 .footer h4 {
   position: relative;
-  padding-bottom: 5px;
+  padding-bottom: 1rem;
   text-align: left;
   font-size: 1rem;
 }

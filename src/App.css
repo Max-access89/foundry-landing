@@ -1,18 +1,92 @@
 :root {
+  --bg-primary-deeper: #377454;
   --bg-primary: #619b7d;
   --bg-color-light: #619b7d2b;
   --bg-color-lighter: #619b7d00;
   --bg-secondary: #619b7d2c;
   --black: #000;
   --white: #fff;
+  --bg-white: #f9fff6;
   --text-color-black: #000;
   --text-color-white: #fff;
+}
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .App {
   text-align: center;
   background-color: var(--bg-color-light);
-  font-family: "Roboto", sans-serif;
+  /* font-family: ; */
 }
 
 .App-logo {
@@ -48,7 +122,7 @@
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-  grid-gap: 0.5rem;
+  grid-gap: 0.8rem;
   /* margin: 0.5rem 0; */
 }
 
@@ -70,8 +144,11 @@
   background-image: url("./Assets//Frame\ 1000004577.png");
   background-repeat: no-repeat;
   background-position: bottom;
+  background-size: contain;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  border-top-right-radius: 1rem;
 }
 
 .streamline {
@@ -92,4 +169,17 @@
   -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
   border-radius: 8px; /* Rounded corners */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+}
+
+.floating-cards {
+  position: relative;
+}
+
+.p-fluid .p-calendar button {
+  background-color: var(--bg-primary);
+  color: var(--text-color-white);
+  border: none;
+  /* border-radius: 0.5rem; */
+  /* padding: 0.5rem 1rem; */
+  cursor: pointer;
 }

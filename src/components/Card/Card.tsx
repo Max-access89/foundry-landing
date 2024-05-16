@@ -5,53 +5,46 @@ interface CardProps {
   children: React.ReactNode;
   buttonLabel?: any;
   onButtonClick?: () => void;
-  layout?: "sideways" | "topdown"; // Optional layout control
-  backgroundImage?: string; // Optional background image URL
+  layout?: "sideways" | "topdown";
+  backgroundImage?: string;
+  backgroundPosition?: string;
 }
 
 const Card: React.FC<CardProps> = ({
   children,
   buttonLabel,
-  onButtonClick,
-  layout = "topdown", // Default layout
+  onButtonClick = () => {},
+  layout = "topdown",
   backgroundImage,
+  backgroundPosition,
 }) => {
   const isSideways = layout === "sideways";
 
   const cardStyle: React.CSSProperties = {
     display: "flex",
-    flexDirection: isSideways ? "row" : "column", // Change direction based on layout prop
-    alignItems: "center", // Align items in the center for a neat look
-    justifyContent: "space-between", // Space items out between
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    marginBottom: "20px",
+    flexDirection: isSideways ? "row" : "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "left",
+    padding: "1rem",
+    // border: "0.1px solid #ccc",
+    borderRadius: "1.5rem",
     backgroundColor: "var(--bg-primary)",
-    backgroundImage: backgroundImage ? `url(${backgroundImage})` : "", // Apply background image if provided
+    backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
+    backgroundPosition: backgroundPosition || "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
     overflow: "hidden",
-  };
-
-  const buttonStyle = {
-    padding: "10px 20px",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
   };
 
   return (
     <div style={cardStyle}>
-      <div style={{ flexGrow: 1 }}>{children}</div>
-      {buttonLabel && (
-        // <button style={buttonStyle} onClick={onButtonClick}>
-        //   {buttonLabel}
-        // </button>
+      <div>{children}</div>
+      {buttonLabel && onButtonClick && (
         <Button
-          variant="secondary"
+          variant={isSideways ? "circle" : "secondary"}
           title={buttonLabel}
-          onClick={() => onButtonClick}
+          onClick={() => onButtonClick()} // Now safely calling the function
         />
       )}
     </div>

@@ -1,0 +1,16 @@
+.card-container {
+  position: relative;
+}
+
+.top-image {
+  position: absolute;
+  top: 10px;
+  left: -4rem;
+  width: 50%; /* Adjust size as needed */
+  height: auto;
+  border-radius: 5px;
+}
+
+.content {
+  color: white;
+}

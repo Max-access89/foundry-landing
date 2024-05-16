@@ -8,9 +8,9 @@ interface FooterColumnProps {
 const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => {
   return (
     <div className="footer-column">
-      <h4>{title}</h4>
+      <h4 className="roboto-medium">{title}</h4>
       {links.map((link, index) => (
-        <a key={index} href={link.url}>
+        <a className="roboto-light" key={index} href={link.url}>
           {link.name}
         </a>
       ))}

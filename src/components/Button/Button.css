@@ -1,6 +1,5 @@
 .button-primary {
   background-color: var(--bg-color-light);
-  /* color: white; */
   padding: 0.5rem 1rem;
 
   cursor: pointer;
@@ -10,11 +9,22 @@
 
 .button-secondary {
   background-color: var(--white);
-  color: var(--bg-primary);
+  color: var(--bg-primary-deeper);
   padding: 0.5rem 1rem;
   cursor: pointer;
   border: none;
   border-radius: 1.5rem;
+  border: none;
+}
+
+.button-circle {
+  background-color: var(--white);
+  color: var(--bg-primary-deeper);
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  border: none;
 }
 
 .button-danger {
