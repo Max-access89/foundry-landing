@@ -42,9 +42,9 @@ const ContactForm = ({ onHide }: contactFormProps) => {
     };
 
     try {
-      // await axios.post(variables.EMAILURL, postData);
+      await axios.post(variables.EMAILURL, postData);
 
-      const response = await axios.post(variables.FOUNDING_LANDING_API_URL, {
+      await axios.post(variables.FOUNDING_LANDING_API_URL, {
         ...formData,
 
         company_name: formData.company,
