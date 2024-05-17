@@ -32,11 +32,11 @@ const Hero = ({
           }}
         >
           <h1 className="hero-header roboto-medium ">{headerTitle}</h1>
-          <p className="hero-subtitle col-6">{subtitle}</p>
+          <p className="hero-subtitle col-12 col-sm-6">{subtitle}</p>
         </div>
 
         {listitems && (
-          <div className="d-flex gap-5 info-container">
+          <div className="info-container">
             <InfoItem
               icon={<AutomationIcon />}
               title="Business Automation"

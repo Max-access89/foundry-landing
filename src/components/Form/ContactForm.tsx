@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
-import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { useForm } from "react-hook-form";
 import { classNames } from "primereact/utils";
@@ -10,6 +9,7 @@ import { FloatLabel } from "primereact/floatlabel";
 import axios from "axios";
 import { useToast } from "../Toast/Toast";
 import { formatDate } from "../../functions/helpers";
+import { variables } from "../../utils/env";
 
 const ContactForm = () => {
   const { showToast } = useToast();
@@ -22,47 +22,32 @@ const ContactForm = () => {
     reset,
   } = useForm();
 
-  const jobFunctions = [
-    { label: "Accounting", value: "Accounting" },
-    { label: "Sales", value: "Sales" },
-    { label: "Marketing", value: "Marketing" },
-    // Additional options
-  ];
-
-  // const locations = [
-  //   { label: "New York", value: "NY" },
-  //   { label: "California", value: "CA" },
-  //   { label: "Texas", value: "TX" },
-  //   // Additional locations
-  // ];
-
   const onSubmit = async (formData: any) => {
     setIsSubmitting(true);
     const postData = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
+      phone: formData.phone,
       company: formData.company,
       jobTitle: formData.jobTitle,
       inquiryDetails: formData.inquiryDetails,
       demoDate: formData.preferredContactDate
         ? formatDate(formData.preferredContactDate)
-        : undefined, // Formatting date for proper ISO string
+        : undefined,
     };
 
     try {
-      const erpUrl = "http://localhost:7077/api/crm/create/prospect";
+      // await axios.post(variables.EMAILURL, postData);
 
-      const emailurl =
-        "https://landing-page-logic-app.azurewebsites.net:443/api/book-demo-workflow/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=DNyHolHBipnt3sDgppkNEZ4799I1-L_ELNQIt5_RhBc";
-
-      await axios.post(emailurl, postData);
-      const response = await axios.post(erpUrl, {
+      const response = await axios.post(variables.FOUNDING_LANDING_API_URL, {
         ...formData,
-        doctype: "Prospect",
+
+        company_name: formData.company,
       });
 
-      console.log("Response:", response.data);
+      console.log("🚀🚀 -> file: ContactForm -> response", response);
+
       showToast("success", "Details submitted successfully", "");
       reset();
     } catch (error) {

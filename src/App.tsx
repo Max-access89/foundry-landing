@@ -1,6 +1,5 @@
 import "./App.css";
 import Hero from "./components/Hero/Hero";
-import { Nav } from "./components/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "./components/Button/Button";
 import ListItem from "./components/ListItem/ListItem";
@@ -27,6 +26,7 @@ import topDemo from "./Assets/top-demo.png";
 import sparkles from "./Assets/sparkledbg.png";
 import sparklesTwo from "./Assets/sparkledbg2.png";
 import { ToastProvider } from "./components/Toast/Toast";
+import { Nav } from "./components/Nav";
 
 function App() {
   const [isDialogVisible, setIsDialogVisible] = useState(false);
@@ -37,7 +37,7 @@ function App() {
         <Nav />
         <div className="sections-container d-flex flex-column gap-5 mt-5">
           <div className="d-flex">
-            <div className="col-9">
+            <div className="col-sm-9 col-12">
               <Hero
                 headerTitle={"Empowering all the ways you do business"}
                 listitems
@@ -82,8 +82,8 @@ function App() {
             }
           />
           <Section title="Built For Business Owners Like You">
-            <div className="d-flex gap-5">
-              <div className="" style={{ width: "35%" }}>
+            <div className="d-flex gap-5 built-for-business">
+              <div className="col-12 col-sm-4">
                 <img src={productad} alt="products" width="60%" />
 
                 <div className="p-2 d-flex align-items-center justify-content-center">
@@ -102,7 +102,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="sections-grid col-7">
+              <div className="sections-grid col-12 col-sm-7">
                 {Products.map((product, index) => (
                   <ListItem Icon={<CheckIcon />} {...product} key={index} />
                 ))}
@@ -119,14 +119,14 @@ function App() {
               />
             }
           >
-            <div className="d-flex gap-3">
+            <div className="section-item-children d-flex gap-3">
               {poweredByFoundryItems.map((item, index) => (
                 <ListItem {...item} key={index} />
               ))}
             </div>
           </Section>
           <Section title="More from Foundry">
-            <div className="d-flex gap-3">
+            <div className="section-item-children d-flex gap-3">
               {moreFromFoundryItems.map((item, index) => (
                 <ListItem {...item} key={index} />
               ))}

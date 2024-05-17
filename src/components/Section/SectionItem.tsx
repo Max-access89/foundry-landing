@@ -8,7 +8,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, action, children }) => {
   return (
-    <div style={{ margin: "20px 0" }}>
+    <div className="section-item" style={{ margin: "20px 0" }}>
       <div
         style={{
           display: "flex",
@@ -17,10 +17,10 @@ const Section: React.FC<SectionProps> = ({ title, action, children }) => {
           marginBottom: "10px",
         }}
       >
-        <h2 className="fw-bold">{title}</h2>
-        {action}
+        <h2 className="flex-2 fw-bold">{title}</h2>
+        <span className="flex-1">{action}</span>
       </div>
-      <div>{children}</div>
+      <>{children}</>
     </div>
   );
 };

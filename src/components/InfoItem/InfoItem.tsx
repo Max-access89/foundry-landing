@@ -9,9 +9,9 @@ interface InfoItemProps {
 const InfoItem: React.FC<InfoItemProps> = ({ icon, title, description }) => {
   return (
     <div
+      className="col-12 col-sm-5 info-item"
       style={{
         display: "flex",
-        // marginBottom: "20px",
         flexDirection: "column",
         textAlign: "left",
         color: "white",

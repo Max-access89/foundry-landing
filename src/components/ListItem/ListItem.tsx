@@ -15,12 +15,13 @@ const ListItem: React.FC<ListItemProps> = ({
 }) => {
   return (
     <div
+      className="col-12 col-sm"
       style={{
         textAlign: "left",
         backgroundColor: Icon ? "var(--bg-secondary)" : "none",
         borderRadius: Icon ? "1rem" : "none",
         padding: Icon ? "1rem" : "none",
-        flex: 1,
+        // flex: 1,
       }}
     >
       {Icon && Icon}
@@ -28,7 +29,7 @@ const ListItem: React.FC<ListItemProps> = ({
         <img
           src={imageUrl}
           alt={title}
-          style={{ width: "100%", height: "50%", borderRadius: "1rem" }}
+          style={{ width: "100%", borderRadius: "1rem" }}
         />
       )}
 

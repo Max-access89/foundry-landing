@@ -1,5 +1,17 @@
 /* Footer.css */
 
+@media (max-width: 900px) {
+  .footer-container {
+    padding: 1.5rem !important;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer-links-container {
+    /* gap: 1rem; */
+  }
+}
+
 .footer-container {
   background-color: var(--bg-primary-deeper);
   padding: 3rem 8rem 0.5rem 8rem;

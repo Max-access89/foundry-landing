@@ -1,5 +1,23 @@
 /* Hero.css */
 
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    border-top-right-radius: 1rem !important;
+  }
+  .hero-title {
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    padding: 2rem !important;
+  }
+  .info-container {
+    flex-wrap: wrap;
+    gap: 0.1rem !important;
+    background-color: var(--bg-primary);
+    border-bottom-right-radius: 1rem;
+  }
+}
+
 .hero-container {
   background-color: var(--bg-color-lighter);
   border-radius: 1rem;
@@ -24,4 +42,6 @@
 .info-container {
   background-color: var(--bg-primary);
   border-bottom-left-radius: 1rem;
+  display: flex;
+  gap: 5rem;
 }

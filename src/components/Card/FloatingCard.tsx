@@ -6,7 +6,7 @@ import metalRing from "../../Assets/MetallicRing.png";
 
 const FloatingCard = ({ topImage, onButtonClick }: any) => {
   return (
-    <div className="card-container">
+    <div className="card-container floating-card-main">
       <img src={topImage} alt="fore" className="top-image" />
       <div className="p-4 mt-5">
         <Card
