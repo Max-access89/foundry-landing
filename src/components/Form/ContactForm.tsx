@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,6 @@ import { FloatLabel } from "primereact/floatlabel";
 import axios from "axios";
 import { useToast } from "../Toast/Toast";
 import { formatDate } from "../../functions/helpers";
-import { variables } from "../../utils/env";
 
 interface contactFormProps {
   onHide: () => void;
@@ -42,11 +41,10 @@ const ContactForm = ({ onHide }: contactFormProps) => {
     };
 
     try {
-      await axios.post(variables.EMAILURL, postData);
+      await axios.post(String(process.env.REACT_APP_EMAILURL), postData);
 
-      await axios.post(variables.FOUNDING_LANDING_API_URL, {
+      await axios.post(String(process.env.REACT_APP_FOUNDING_LANDING_API_URL), {
         ...formData,
-
         company_name: formData.company,
       });
 

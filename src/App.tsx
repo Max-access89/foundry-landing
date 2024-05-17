@@ -136,7 +136,7 @@ function App() {
         <Dialog
           header="Book a Demo"
           visible={isDialogVisible}
-          style={{ width: "50vw" }}
+          className="col-11 col-sm-6"
           onHide={() => setIsDialogVisible(false)}
         >
           <ContactForm onHide={() => setIsDialogVisible(false)} />
