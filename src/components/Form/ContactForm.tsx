@@ -11,7 +11,11 @@ import { useToast } from "../Toast/Toast";
 import { formatDate } from "../../functions/helpers";
 import { variables } from "../../utils/env";
 
-const ContactForm = () => {
+interface contactFormProps {
+  onHide: () => void;
+}
+
+const ContactForm = ({ onHide }: contactFormProps) => {
   const { showToast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -46,10 +50,9 @@ const ContactForm = () => {
         company_name: formData.company,
       });
 
-      console.log("🚀🚀 -> file: ContactForm -> response", response);
-
       showToast("success", "Details submitted successfully", "");
       reset();
+      onHide();
     } catch (error) {
       console.error("Error creating prospect:", error);
       showToast("error", "Details were not submitted", "");
@@ -94,14 +97,14 @@ const ContactForm = () => {
           <FloatLabel>
             <InputText
               id="company"
-              {...register("company", { required: false })}
+              {...register("company", { required: true })}
               className={classNames({ "p-invalid": errors.company })}
             />
             <label htmlFor="company">Company Name</label>
           </FloatLabel>
-          {/* {errors.company && (
+          {errors.company && (
             <small className="p-error">Company Name is required.</small>
-          )} */}
+          )}
         </div>
         <div className="p-col-12 p-md-6 mt-4">
           <FloatLabel>

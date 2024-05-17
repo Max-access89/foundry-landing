@@ -139,7 +139,7 @@ function App() {
           style={{ width: "50vw" }}
           onHide={() => setIsDialogVisible(false)}
         >
-          <ContactForm />
+          <ContactForm onHide={() => setIsDialogVisible(false)} />
         </Dialog>
         <Footer />
       </div>
